@@ -1,0 +1,66 @@
+<main>
+<!-- Page container -->
+ <section class="container pt-3 pb-5 pb-md-6 mb-2 mb-lg-0">
+
+
+    <!-- Toolbar + Pagination -->
+   
+    <div class="row flex-lg-nowrap">
+
+
+      
+     <br>
+     <br>
+     <br>
+     <br>
+
+      <!-- Product grid -->
+      <div class="col">
+        <div class="row row-cols-12 row-cols-sm-12 row-cols-md-12 row-cols-lg-12" data-filters-columns>
+              
+          <!-- Item -->
+          <div class="cols-md-4 cols-sm-12 cols-lg-4 mb-grid-gutter" *ngFor="let item of producto" >
+           
+            <img style="width: 50px"  >
+            <div class="card card-product mx-auto">
+              <div class="card-product-img">
+                <a href="shop-single.html" class="card-img-top">
+                  <img [src]="url+'obtener_portada/'+item.portada" alt="Product image">
+
+                </a>
+             
+                <div class="card-product-widgets-bottom">
+                  <a href="#" class="btn-wishlist ml-auto" data-toggle="tooltip" data-placement="left" title="Add to wishlist"></a>
+                </div>
+              </div>
+              <div class="card-body pb-2">
+                <h3 class="card-product-title text-truncate mb-2">
+                  <a href="shop-single.html" class="nav-link">{{item.titulo}}</a>
+                </h3>
+                <div class="d-flex align-items-center">
+                  <span class="h5 d-inline-block mb-0">${{item.precio}}</span>
+                </div>
+              </div>
+              <div class="card-footer">
+                <div class="d-flex align-items-center mb-2 pb-1">
+                  <div class="mt-n2">
+                 {{item.categoria}}
+                  </div>
+                  
+                </div>
+                <button type="button" class="btn btn-primary btn-block">
+                  <i class="cxi-cart align-middle mt-n1 mr-2"></i>
+                  Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+      
+        </div>
+
+     
+      </div>
+    </div>
+  </section>
+</main>
