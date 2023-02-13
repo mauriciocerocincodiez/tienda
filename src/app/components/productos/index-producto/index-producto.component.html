@@ -8,11 +8,7 @@
     <div class="row flex-lg-nowrap">
 
 
-      
-     <br>
-     <br>
-     <br>
-     <br>
+  
 
       <!-- Product grid -->
       <div class="col">
@@ -24,7 +20,7 @@
             <img style="width: 50px"  >
             <div class="card card-product mx-auto">
               <div class="card-product-img">
-                <a href="shop-single.html" class="card-img-top">
+                <a [routerLink]="['productos/',item._id]" routerLinkActive="router-link-active" class="card-img-top">
                   <img [src]="url+'obtener_portada/'+item.portada" alt="Product image">
 
                 </a>
@@ -35,7 +31,7 @@
               </div>
               <div class="card-body pb-2">
                 <h3 class="card-product-title text-truncate mb-2">
-                  <a href="shop-single.html" class="nav-link">{{item.titulo}}</a>
+                  <a [routerLink]="['productos/',item._id]" routerLinkActive="router-link-active" class="nav-link">{{item.titulo}}</a>
                 </h3>
                 <div class="d-flex align-items-center">
                   <span class="h5 d-inline-block mb-0">${{item.precio}}</span>
@@ -48,7 +44,16 @@
                   </div>
                   
                 </div>
-                <button type="button" class="btn btn-primary btn-block">
+                <div class="form-group">
+                  <label for="size">Cantidad</label>
+                  <select class="form-control "  name="cantidad" [(ngModel)]="carrito_data.cantidad" >
+                    <option value="0" >Seleccione la Cantidad</option>
+                    <option value="1" >1</option>
+                    <option value="2" >2</option>
+                    <option value="3" >3</option>
+                  </select>
+                </div>
+                <button type="button" class="btn btn-primary btn-block" (click)="agregar_carrito(item._id)">
                   <i class="cxi-cart align-middle mt-n1 mr-2"></i>
                   Add to cart
                 </button>

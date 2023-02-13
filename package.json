@@ -20,6 +20,8 @@
     "@angular/router": "^15.0.0",
     "@auth0/angular-jwt": "^5.1.2",
     "rxjs": "~7.5.0",
+    "socket.io-client": "^4.6.0",
+    "tiny-slider": "^2.9.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"
   },

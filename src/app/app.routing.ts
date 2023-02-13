@@ -4,15 +4,17 @@ import { InicioComponent } from "./components/inicio/inicio.component";
 import { LoginComponent } from "./components/login/login.component";
 import { PerfilComponent } from "./components/usuario/perfil/perfil.component";
 import { AuthGuard } from "./guards/auth.guard";
-import { IndexProductoComponent } from "./components/pruductos/index-producto/index-producto.component";
+import { IndexProductoComponent } from "./components/productos/index-producto/index-producto.component";
 import { SowProductoComponent } from "./components/productos/sow-producto/sow-producto.component";
+import { CarritoComponent } from "./components/carrito/carrito.component";
 
 const appRoute : Routes = [
  { path: '', component: InicioComponent },
  { path: 'login', component: LoginComponent },
  { path: 'cuenta/perfil', component: PerfilComponent, canActivate: [AuthGuard] },
  { path: 'productos', component: IndexProductoComponent },
- { path: 'productos/:slug', component: SowProductoComponent }
+ { path: 'productos/:id', component: SowProductoComponent , canActivate: [AuthGuard]},
+ { path: 'carrito', component: CarritoComponent, canActivate: [AuthGuard] }
 ]
 
 export const appRoutingPorviders: any[]=[];

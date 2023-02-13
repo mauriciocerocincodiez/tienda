@@ -13,8 +13,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoginComponent } from './components/login/login.component';
 import { PerfilComponent } from './components/usuario/perfil/perfil.component';
 import { SiderbarComponent } from './components/usuario/siderbar/siderbar.component';
-import { IndexProductoComponent } from './components/pruductos/index-producto/index-producto.component';
+import { IndexProductoComponent } from './components/productos/index-producto/index-producto.component';
 import { SowProductoComponent } from './components/productos/sow-producto/sow-producto.component';
+import { CarritoComponent } from './components/carrito/carrito.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SowProductoComponent } from './components/productos/sow-producto/sow-pr
     PerfilComponent,
     SiderbarComponent,
     IndexProductoComponent,
-    SowProductoComponent
+    SowProductoComponent,
+    CarritoComponent
   ],
   imports: [
     BrowserModule,

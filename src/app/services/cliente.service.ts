@@ -42,11 +42,28 @@ export class ClienteService {
      return this._http.put(this.url+'actulizar_cliente_gets/'+id, data, {headers: headers});
     }
 
-    obtener_productos(token: any){
-    
-      let headers = new HttpHeaders({'Content-Type' : 'application/json', 'Authorization': token});
-      return this._http.get(this.url+'obtener_productos', {headers: headers});
+    obtener_productos(){
+     return this._http.get(this.url+'obtener_productos');
       }
+
+    obtener_producto_cliente(id: any, token: any){
+    let headers = new HttpHeaders({'Content-Type' : 'application/json', 'Authorization': token});
+    return this._http.get(this.url+'obtener_producto_cliente/'+id, {headers: headers});
+     }
+     
+    agregar_carrito_cliente(data: any, token: any){
+    let headers = new HttpHeaders({'Content-Type' : 'application/json', 'Authorization': token});
+    return this._http.post(this.url+'agregar_carrito_cliente', data, {headers: headers});
+    }
+    obtener_carrito_cliente(id: any, token: any){
+    let headers = new HttpHeaders({'Content-Type' : 'application/json', 'Authorization': token});
+    return this._http.get(this.url+'obtener_carrito_cliente/'+id, {headers: headers});
+    }
+
+   eliminar_carrito_cliente(id: any, token: any){
+   let headers = new HttpHeaders({'Content-Type' : 'application/json', 'Authorization': token});
+   return this._http.delete(this.url+'eliminar_carrito_cliente/'+id, {headers: headers});
+   }
 
     public isAuthenticated(): boolean{
 
