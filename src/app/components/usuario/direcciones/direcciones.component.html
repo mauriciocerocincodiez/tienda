@@ -1,0 +1,82 @@
+<app-nav></app-nav>
+<nav class="bg-secondary mb-3" aria-label="breadcrumb">
+    <div class="container">
+    <ol class="breadcrumb breadcrumb-alt mb-0">
+        <li class="breadcrumb-item">
+        <a href="index.html"><i class="cxi-home"></i></a>
+        </li>
+        <li class="breadcrumb-item">
+        <a href="#">Account</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Mi Perfil</li>
+    </ol>
+    </div>
+</nav>
+<section class="container pt-3 pt-lg-4 pb-5 pb-lg-6">
+    <div class="row pb-2 pb-lg-0">
+
+    <!-- Account menu (sticky sidebar) -->
+    
+    <aside class="col-xl-3 col-lg-4 pb-3 mb-4 mb-lg-0">
+        <app-siderbar></app-siderbar>
+    </aside>
+    <!-- Content -->
+    <div class="col-lg-8 ml-auto">
+        <div class="d-flex align-items-center justify-content-between mb-4 pb-1 pb-sm-3">
+        <h1 class="h2 mb-0">My profile</h1>
+        <a href="#" class="btn text-danger btn-link font-size-base text-decoration-none pr-0">
+            <i class="cxi-delete font-size-lg mt-n1 mr-2"></i>
+            Delete account
+        </a>
+        </div>
+        <form #agregarForm="ngForm"(ngSubmit)="agregar(agregarForm)" >
+        <div class="row pb-3">
+            <div class="col-sm-6 form-group">
+            <label for="ac-fn">Destinatario</label>
+            <input type="text" required class="form-control form-control-lg" name="destinatario"  [(ngModel)]="direccion.destinatario" >
+            </div>
+            <div class="col-sm-6 form-group">
+            <label for="ac-ln">DNI</label>
+            <input type="text" required  class="form-control form-control-lg" name="dni"  [(ngModel)]="direccion.dni">
+            </div>
+            <div class="col-sm-6 form-group">
+            <label for="ac-password">Zip</label>
+            <input type="email" required  class="form-control form-control-lg" name="zip"  [(ngModel)]="direccion.zip">
+            </div>
+           
+            <div class="col-sm-6 form-group">
+                <label for="ac-email">Pais</label>
+                <input type="text" required  class="form-control form-control-lg" name="pais"  [(ngModel)]="direccion.pais">
+            </div>
+            <div class="col-sm-6 form-group">
+                <label for="ac-ln">Region</label>
+                <input type="text" required  class="form-control form-control-lg" name="region"  [(ngModel)]="direccion.region">
+           </div>
+            <div class="col-sm-6 form-group">
+                <label for="ac-ln">provincia</label>
+                <input type="text" required  class="form-control form-control-lg" name="provincia"  [(ngModel)]="direccion.provincia">
+             </div>
+             <div class="col-sm-6 form-group">
+                <label for="ac-ln">Ciudad</label>
+                <input type="text" required  class="form-control form-control-lg" name="ciudad"  [(ngModel)]="direccion.ciudad">
+           </div>
+           
+           <div class="col-sm-12 form-group">
+            <label for="ac-email">Direccion</label>
+            <textarea name="direccion" required  class="form-control form-control-lg" required  class="form-control form-control-lg" rows="3"></textarea>
+         </div>
+           <div class="col-sm-6 form-group">
+            <label for="ac-ln">Telefono</label>
+            <input type="text" required  class="form-control form-control-lg" name="telefono"  [(ngModel)]="direccion.telefono">
+           </div>
+           <div class="col-sm-6 form-group">
+            <label for="ac-ln">Principal</label>
+            <input type="text" required  class="form-control form-control-lg" name="principal"  [(ngModel)]="direccion.principal">
+           </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">&nbsp;Agregar&nbsp;</button>
+        </form>
+    </div>
+    </div>
+</section>
+<app-footer></app-footer>

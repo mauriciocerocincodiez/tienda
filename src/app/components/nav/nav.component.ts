@@ -101,6 +101,7 @@ op_modalcart(){
 obtener_carrito_cliente(){
   this._clienteService.obtener_carrito_cliente(this.id, this.token).subscribe(
     Response =>{
+     
       this.carrrito_array = Response;
       this.carrrito_arr = this.carrrito_array.data;  
       for (var i = 0; i < this.carrrito_arr.length; i++) {

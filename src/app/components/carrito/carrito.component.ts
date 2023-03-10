@@ -3,6 +3,9 @@ import { ClienteService } from 'src/app/services/cliente.service';
 import { GLOBAL } from 'src/app/services/GLOBAL';
 import { io } from "socket.io-client";
 declare var iziToast: any;
+declare var Cleave: any;
+declare var StickySidebar: any;
+
 @Component({
   selector: 'app-carrito',
   templateUrl: './carrito.component.html',
@@ -18,6 +21,8 @@ export class CarritoComponent {
   public url;
   public socket  = io('http://localhost:4201');
   public data_producto_eliminado: any;
+  window: any = window;
+  handler = this.window.ePayco.checkout.configure({ key: '34f054ca93562e3b9baafd02daab181c', test: true });
 
   constructor(
     private _clienteService: ClienteService
@@ -74,4 +79,67 @@ export class CarritoComponent {
       }
     );
   }
+
+  ngOnInit(): void{
+    setTimeout(()=>{
+       new Cleave('#cc-number', {
+        creditCard: true,
+        onCreditCardTypeChanged: function (type: any) {
+            // update UI ...
+        }
+    });
+
+    new Cleave('#cc-exp-date', {
+      date: true,
+      datePattern: ['m', 'y']
+  });
+
+  new Cleave('.input-11', {
+    numericOnly: true,
+    blocks: [0, 3, 3, 4],
+    delimiters: ["(", ") ", "-"]
+});
+    });
+
+    var sidebar = new StickySidebar('.sidebar-sticky', {topSpacing: 20});
+  }
+
+
+  epayco(){
+	
+	
+    var data={ 
+      //Parametros compra (obligatorio) 
+      
+      
+      name: "Plan de facturacion electronica",
+      description: "Plan de facturacion electronica",
+      invoice: "",
+      currency: "cop",
+      country: "co",
+      tax_base: '0',
+      tax: '0',
+      amount: 60000,
+     
+      lang: "es",
+    external: "false",
+    //Onpage="false" - Standard="true" 
+      //Atributos opcionales
+      method:'GET',
+      extra1: '',
+      extra2: 'ePayco',
+      extra3: '',
+      response: "http://localhost:4200/response",
+      confirmation: "http://localhost:4200/confirmation",
+  } 
+  
+  this.handler.onCloseModal = this.onCloseEpaycoModal
+  this.handler.open(data)
+}
+
+onCloseEpaycoModal(){
+  alert('Close ePayco Modal!!!!!!!')
+}
+
+
 }

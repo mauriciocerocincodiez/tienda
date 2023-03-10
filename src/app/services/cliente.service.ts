@@ -64,6 +64,11 @@ export class ClienteService {
    let headers = new HttpHeaders({'Content-Type' : 'application/json', 'Authorization': token});
    return this._http.delete(this.url+'eliminar_carrito_cliente/'+id, {headers: headers});
    }
+   
+   agregar_direccion_cliente1(data: any, token: any){
+    let headers = new HttpHeaders({'Content-Type' : 'application/json', 'Authorization': token});
+    return this._http.post(this.url+'agregar_direccion_cliente1', data, {headers: headers});
+    }
 
     public isAuthenticated(): boolean{
 
